@@ -1,9 +1,9 @@
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
-import Main from '../main/Main';
-import PopupWithForm from '../popupWithForm/PopupWithForm';
+import Footer from './Footer';
+import Header from './Header';
+import Main from './Main';
+import PopupWithForm from './PopupWithForm';
 import React from 'react';
-import ImagePopup from '../imagePopup/ImagePopup';
+import ImagePopup from './ImagePopup';
 
 
 

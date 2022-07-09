@@ -1,6 +1,6 @@
-import { api } from "../../utils/api";
-import React, { useState } from 'react';
-import Card from "../card/Card";
+import { api } from "../utils/api";
+import React, { useState,useEffect } from 'react'; 
+import Card from "./Card";
 
 function Main(props) {
 
@@ -44,7 +44,7 @@ function Main(props) {
         <section className="elements">
         { cards.map((item) => (
             <Card 
-            props={item}
+            card={item}
             key={item._id}
             onCardClick={props.onCardClick}
             />
