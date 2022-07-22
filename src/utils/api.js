@@ -6,19 +6,23 @@ export class Api{
             authorization: this._token
         }
     }
+
+    _checkResponse(res){
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`Ошибка ${res.status}`);
+        }
+
     getUserData(){
         return fetch('https://nomoreparties.co/v1/cohort-43/users/me',{
             headers: this._headers,
             method: 'GET'
         })
-        .then((res) =>{
-           if(res.ok){
-                return res.json()
-           }
-           return Promise.reject('Возникла ошибка') 
-        }) 
-      
+        .then(this._checkResponse) 
     }
+
+
 
     updateUserData(user){
         const body = {
@@ -30,24 +34,14 @@ export class Api{
             method: 'PATCH',
             body: JSON.stringify(body),
         })
-        .then((res) =>{
-            if(res.ok){
-                 return res.json()
-            }
-            return Promise.reject('Возникла ошибка') 
-         }) 
+        .then(this._checkResponse) 
     }
 
     getCardsData(){
         return fetch('https://mesto.nomoreparties.co/v1/cohort-43/cards',{
             headers: this._headers,
         })
-        .then((res) =>{
-           if(res.ok){
-                return res.json()
-           }
-           return Promise.reject('Возникла ошибка') 
-        }) 
+        .then(this._checkResponse) 
       
     }
 
@@ -61,12 +55,7 @@ export class Api{
             method: 'POST',
             body: JSON.stringify(body),
         })
-        .then((res) =>{
-            if(res.ok){
-                 return res.json()
-            }
-            return Promise.reject('Возникла ошибка') 
-         }) 
+        .then(this._checkResponse) 
     }
 
     deleteCard(cardId){
@@ -74,12 +63,7 @@ export class Api{
             headers: this._headers,
             method: 'DELETE'
         })
-        .then((res) =>{
-           if(res.ok){
-                return res.json()
-           }
-           return Promise.reject('Возникла ошибка') 
-        }) 
+        .then(this._checkResponse) 
     }
 
     updateLike(cardId, method){
@@ -87,12 +71,7 @@ export class Api{
             headers: this._headers,
             method,
         })
-        .then((res) =>{
-            if(res.ok){
-                 return res.json()
-            }
-            return Promise.reject('Возникла ошибка') 
-         }) 
+        .then(this._checkResponse) 
     }
 
     updateAvatar(user){
@@ -104,12 +83,7 @@ export class Api{
             method: 'PATCH',
             body: JSON.stringify(body),
         })
-        .then((res) =>{
-            if(res.ok){
-                 return res.json()
-            }
-            return Promise.reject('Возникла ошибка') 
-         }) 
+        .then(this._checkResponse) 
     }
 
 

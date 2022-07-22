@@ -11,10 +11,10 @@ function Main(props) {
     <div className="content">
         <section className="profile">
             <div className="profile__info">
-                <img className="profile__avatar" src={currentUser.avatar} alt="Аватар"/>
+                <img className="profile__avatar" src={currentUser?.avatar} alt="Аватар"/>
                 <div onClick={props.onEditAvatar} className="profile__edit"/>
-                <h1 className="profile__user-name">{currentUser.name}</h1>
-                <p className="profile__description">{currentUser.about}</p>
+                <h1 className="profile__user-name">{currentUser?.name}</h1>
+                <p className="profile__description">{currentUser?.about}</p>
                 <button onClick={props.onEditProfile} className="button profile__edit-button" type="button"/>
             </div>
             <button onClick={props.onAddPlace} className="button profile__add-button" type="button"/>

@@ -20,7 +20,7 @@ function App() {
 
   const [selectedCard, setSelectedCard] = React.useState(null);
 
-  const [currentUser, setСurrentUser] = React.useState('');
+  const [currentUser, setСurrentUser] = React.useState(null);
 
   const [cards, setCards] = React.useState([])
 
